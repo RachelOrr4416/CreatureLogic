@@ -10,7 +10,7 @@ namespace Creature
             string Opener = @"            Lets build a creatue card!
 
             I can create one randomly or you can make choices about it.
-            Please Select an option by typing the first word:";
+            Please Select an option below:";
             string firstChoice = @"                    
                     random creation
             
@@ -28,89 +28,59 @@ namespace Creature
             if (answer == "random")
 
             {
-                    Console.WriteLine("I'l create one now, one momemnt please.");
+                    Console.WriteLine("I'll create one now, one momemnt please.");
+                    CalculateCost();
+                    AssignKeyword();
                     break;
-                     
-            }
+
+                }
 
                 if (answer == "choose")
                 {
                     Console.WriteLine("Okay let's see what options we have");
+                    
                     break;
 
                 }
 
                 else
                 {
-                    Console.WriteLine("sorry I didn't get that, lets try again");
+                    Console.WriteLine("sorry I didn't get that, just type the first word of your selection");
                     
                     loop = true;
                 }
             }
-     }   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        public int Cost = 2;
-        public int Power = 2;
-        public int Toughness = 2;
-        public string CreatueType = "Dragon";
-        public string Rarity = "Mythic";
-        public string Abilites = "Flying Haste";
-       
-
-        static void Main(string[] args)
-        {
-
-
-            Console.WriteLine("This creature is a " + Rarity + " Dragon for 4RR with Flying Haste and has 6 and toughness 6");
-
             
         }
-      
-        
-      
-        /*  public int power = 0;
-        public int toughness = 0;
-        public string KeywordAbility = "Word"; 
-        public string Downside = "Bad Card Effects";
-        public string Upside = "Good Card Effects";
-        public string Rarity = "Determines the points available for the creature";
-        public int Cost= 0; //the mana value and color
-        public string Color = "The cards color"; //defines the keywords available
-        public string Legendary = "This is a random upside"; //more points and doesn't require downsides
-        public decimal? PointValue= 0; // will determine how many downsides/upsides
-        public string Type = "Dragon";
+        public static void CalculateCost()
+        {
+            var castingCost = new Random();
+            int cost = castingCost.Next(1, 10);
+            Console.WriteLine(cost);
 
-        */
-        
-        
-
+            int power = cost;
+            int toughness = cost;
+           
+            Console.WriteLine("this creature has " + power + " power and " + toughness + " toughness");
+            Console.WriteLine("this creature is a " + cost + " mana " + power + "/" + toughness);
             
+        }
+
+       public static void AssignKeyword()
+        {
+            
+                var random = new Random();
+                var list = new List<string> { "Trample", "Lifelink", "Vigilance", "Flying", "First Strike", "Double Strike", "Reach", "Indestructible", "Flash", "Haste", "Defender", "Hexproof", "Menace", "Deathtouch", "Protection" };
+                int index = random.Next(list.Count);
+                Console.WriteLine(list[index]);
+            
+        }
+
+        public static void AssignRarity()
+        { 
+        
+        }
+           
+        
     }
 }
